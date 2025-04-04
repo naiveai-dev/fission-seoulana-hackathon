@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "frontend": "pnpm --filter @fission-seoulana-hackathon/frontend",
     "prettier": "npx prettier --write ."
   },
   "keywords": [],
