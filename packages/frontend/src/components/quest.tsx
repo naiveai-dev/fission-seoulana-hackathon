@@ -52,87 +52,91 @@ export default function QuestSection() {
           </p>
         </div>
       )}
-      <ul className="min-h-[204px]">
-        <li className="py-3">
-          <div className="flex justify-between items-center">
-            <span>Mint Fission ID</span>
-            <div className="h-11">
-              {mintFissionIdQuest ? (
-                <MintIdButton
-                  completed={mintFissionIdCompleted}
-                  onAfterCheck={async () => await complete(mintFissionIdQuest)}
-                />
-              ) : (
-                <>...</>
-              )}
+      <div className="overflow-x-auto">
+        <ul className="min-h-[204px] min-w-xs">
+          <li className="py-3">
+            <div className="flex justify-between items-center">
+              <span className="tracking-tight">Mint Fission ID</span>
+              <div className="h-11">
+                {mintFissionIdQuest ? (
+                  <MintIdButton
+                    completed={mintFissionIdCompleted}
+                    onAfterCheck={async () =>
+                      await complete(mintFissionIdQuest)
+                    }
+                  />
+                ) : (
+                  <>...</>
+                )}
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
 
-        <li className="py-3">
-          <div className="flex justify-between items-center">
-            <span>Follow @fission_web3 in 𝕏</span>
-            <div className="h-11">
-              {followXQuest ? (
-                <FollowXButton
-                  completed={followXCompleted}
-                  onAfterCheck={async () => await complete(followXQuest)}
-                />
-              ) : (
-                <>...</>
-              )}
+          <li className="py-3">
+            <div className="flex justify-between items-center">
+              <span className="tracking-tight">Follow @fission_web3 in 𝕏</span>
+              <div className="h-11">
+                {followXQuest ? (
+                  <FollowXButton
+                    completed={followXCompleted}
+                    onAfterCheck={async () => await complete(followXQuest)}
+                  />
+                ) : (
+                  <>...</>
+                )}
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
 
-        <li className="py-3">
-          <div className="flex justify-between items-center">
-            <span>Read Fission docs</span>
-            <div className="h-11">
-              {fissionDocsQuest ? (
-                <DocCheckButton
-                  completed={fissionDocsCompleted}
-                  onAfterCheck={async () => await complete(fissionDocsQuest)}
-                />
-              ) : (
-                <>...</>
-              )}
+          <li className="py-3">
+            <div className="flex justify-between items-center">
+              <span className="tracking-tight">Read Fission docs</span>
+              <div className="h-11">
+                {fissionDocsQuest ? (
+                  <DocCheckButton
+                    completed={fissionDocsCompleted}
+                    onAfterCheck={async () => await complete(fissionDocsQuest)}
+                  />
+                ) : (
+                  <>...</>
+                )}
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
 
-        <li className="py-3">
-          <div className="flex justify-between items-center">
-            <span>Try Data Labeling</span>
-            <div className="h-11">
-              {dataLabelingQuest ? (
-                <DataLabelingButton
-                  completed={dataLabelingCompleted}
-                  onClick={() => {}}
-                />
-              ) : (
-                <>...</>
-              )}
+          <li className="py-3">
+            <div className="flex justify-between items-center">
+              <span className="tracking-tight">Try Data Labeling</span>
+              <div className="h-11">
+                {dataLabelingQuest ? (
+                  <DataLabelingButton
+                    completed={dataLabelingCompleted}
+                    onClick={() => {}}
+                  />
+                ) : (
+                  <>...</>
+                )}
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
 
-        <li className="py-3">
-          <div className="flex justify-between items-center">
-            <span>Hugging Face</span>
-            <div className="h-11">
-              {huggingFaceQuest ? (
-                <HuggingFaceButton
-                  completed={huggingFaceCompleted}
-                  onAfterCheck={async () => await complete(huggingFaceQuest)}
-                />
-              ) : (
-                <>...</>
-              )}
+          <li className="py-3">
+            <div className="flex justify-between items-center">
+              <span className="tracking-tight">Hugging Face</span>
+              <div className="h-11">
+                {huggingFaceQuest ? (
+                  <HuggingFaceButton
+                    completed={huggingFaceCompleted}
+                    onAfterCheck={async () => await complete(huggingFaceQuest)}
+                  />
+                ) : (
+                  <>...</>
+                )}
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
