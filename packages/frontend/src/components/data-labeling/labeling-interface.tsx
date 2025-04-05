@@ -2,9 +2,22 @@ import { labelingQuestions, useLabeling } from '../../lib/use-labeling';
 import { Box } from '../box';
 import { Button } from '../button';
 
-export default function LabelingInterface() {
+export default function LabelingInterface({
+  onClear,
+}: {
+  onClear: () => void;
+}) {
   const status = useLabeling((state) => state.status);
   const question = labelingQuestions[status.questionIndex];
+  const checkAnswer = useLabeling((state) => state.checkAnswer);
+
+  const handleAnswer = (answer: boolean) => {
+    checkAnswer(answer);
+
+    if (status.questionIndex === labelingQuestions.length - 1) {
+      onClear();
+    }
+  };
 
   return (
     <Box label="Data Labeling" className="min-h-64">
@@ -29,8 +42,12 @@ export default function LabelingInterface() {
         </p>
       </div>
       <div className="flex justify-center items-center gap-4 pt-4">
-        <Button size={'lg'}>YES</Button>
-        <Button size={'lg'}>NO</Button>
+        <Button size={'lg'} onClick={() => handleAnswer(true)}>
+          YES
+        </Button>
+        <Button size={'lg'} onClick={() => handleAnswer(false)}>
+          NO
+        </Button>
       </div>
     </Box>
   );

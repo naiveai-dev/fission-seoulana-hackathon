@@ -9,7 +9,7 @@ export default function LabelingStatus() {
     if (status.questionIndex === 0) {
       return 0;
     }
-    return (status.correctCount / status.questionIndex) * 100;
+    return (status.correctCount / labelingQuestions.length) * 100;
   }, [status.correctCount, status.questionIndex]);
 
   return (

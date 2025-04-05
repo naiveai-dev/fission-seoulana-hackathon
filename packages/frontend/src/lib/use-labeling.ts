@@ -73,7 +73,15 @@ export const labelingQuestions = [
   },
 ];
 
-interface UseLabelingStore {
+export interface LabelingHistory {
+  id: string;
+  userQuery: string;
+  responseFragment: string;
+  groundTruth: boolean;
+  userLabel: boolean;
+}
+
+export interface UseLabelingStore {
   labelingMode: boolean;
   setLabelingMode: (labelingMode: boolean) => void;
 
@@ -81,9 +89,15 @@ interface UseLabelingStore {
     questionIndex: number;
     correctCount: number;
   };
+
+  labelingHistory: LabelingHistory[];
+
+  checkAnswer: (answer: boolean) => void;
+
+  endLabeling: () => void;
 }
 
-export const useLabeling = create<UseLabelingStore>((set) => ({
+export const useLabeling = create<UseLabelingStore>((set, get) => ({
   labelingMode: true,
   setLabelingMode: (labelingMode: boolean) => {
     return set({ labelingMode });
@@ -92,5 +106,59 @@ export const useLabeling = create<UseLabelingStore>((set) => ({
   status: {
     questionIndex: 0,
     correctCount: 0,
+  },
+
+  labelingHistory: [],
+
+  checkAnswer: (
+    answer: boolean, // true = YES, false = NO
+  ) => {
+    const questionIndex = get().status.questionIndex;
+    const question = labelingQuestions[questionIndex];
+
+    const isCorrect = question.groundTruth === answer;
+
+    const status = get().status;
+
+    const correctCount = isCorrect
+      ? status.correctCount + 1
+      : status.correctCount;
+
+    const questionIndexIncremented =
+      questionIndex === labelingQuestions.length - 1
+        ? questionIndex
+        : questionIndex + 1;
+
+    set({
+      status: {
+        questionIndex: questionIndexIncremented,
+        correctCount,
+      },
+    });
+
+    const labelingHistory = get().labelingHistory;
+
+    const newLabelingHistory: LabelingHistory = {
+      id: question.id,
+      userQuery: question.userQuery,
+      responseFragment: question.responseFragment,
+      groundTruth: question.groundTruth,
+      userLabel: answer,
+    };
+
+    const updatedLabelingHistory = [...labelingHistory, newLabelingHistory];
+
+    set({ labelingHistory: updatedLabelingHistory });
+  },
+
+  endLabeling: () => {
+    set({
+      labelingMode: false,
+      status: {
+        questionIndex: 0,
+        correctCount: 0,
+      },
+      labelingHistory: [],
+    });
   },
 }));
