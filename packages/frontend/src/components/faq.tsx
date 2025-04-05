@@ -1,6 +1,6 @@
 export default function FAQ() {
   return (
-    <article className="min-h-svh py-20">
+    <article className="min-h-svh py-20" id="faq">
       <header className="border-t-4 border-primary pt-5 pb-3">
         <h1 className="text-3xl text-center">QnA</h1>
       </header>

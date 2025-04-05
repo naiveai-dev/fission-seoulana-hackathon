@@ -1,4 +1,5 @@
 import { Box } from './components/box';
+import { Button } from './components/button';
 import DataLabeling from './components/data-labeling';
 import FAQ from './components/faq';
 
@@ -11,6 +12,7 @@ import { useLabeling } from './lib/use-labeling';
 
 export default function Index() {
   const labelingMode = useLabeling((state) => state.labelingMode);
+
   return (
     <>
       <BaseLayout>
@@ -29,6 +31,22 @@ export default function Index() {
               <Box label="Mint Fission ID">
                 <Mint />
               </Box>
+              <Button
+                className="w-full"
+                size="lg"
+                onClick={() => {
+                  const faq = document.getElementById('faq');
+
+                  if (faq) {
+                    faq.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start',
+                    });
+                  }
+                }}
+              >
+                QnA
+              </Button>
             </div>
 
             {labelingMode && (
