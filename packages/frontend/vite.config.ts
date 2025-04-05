@@ -22,7 +22,7 @@ export default defineConfig({
       version: '',
     },
     global: {},
-    ANTHROPIC_API_KEY: JSON.stringify(process.env.ANTHROPIC_API_KEY),
+    ANTHROPIC_API_KEY: JSON.stringify(process.env.VITE_ANTHROPIC_API_KEY),
   },
   optimizeDeps: {
     esbuildOptions: {
