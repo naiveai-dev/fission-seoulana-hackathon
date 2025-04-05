@@ -31,7 +31,12 @@ export default function SaveButton() {
   }
 
   return (
-    <Button className="w-full" size={'lg'} onClick={handleSave}>
+    <Button
+      disabled={loading}
+      className="w-full"
+      size={'lg'}
+      onClick={handleSave}
+    >
       Save Progress in on-chain
     </Button>
   );
