@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { labelingQuestions, useLabeling } from '../../lib/use-labeling';
 import { Box } from '../box';
 import { useEvaluation } from '../../lib/use-evaluation';
