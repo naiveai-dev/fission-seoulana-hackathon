@@ -1,11 +1,14 @@
 import { Box } from './components/box';
+import DataLabeling from './components/data-labeling';
 import { BaseLayout } from './components/layout';
 import { IDLogo } from './components/logo';
 import Mint from './components/mint';
 import QuestSection from './components/quest';
 import Wallet from './components/wallet';
+import { useLabeling } from './lib/use-labeling';
 
 export default function Index() {
+  const labelingMode = useLabeling((state) => state.labelingMode);
   return (
     <BaseLayout>
       <div className="min-h-screen flex flex-col justify-safe-center py-4">
@@ -25,9 +28,16 @@ export default function Index() {
             </Box>
           </div>
 
-          <Box label="Quests" className="col-span-3 sm:col-span-2">
-            <QuestSection />
-          </Box>
+          {labelingMode && (
+            <div className="col-span-3 sm:col-span-2">
+              <DataLabeling />
+            </div>
+          )}
+          {!labelingMode && (
+            <Box label="Quests" className="col-span-3 sm:col-span-2">
+              <QuestSection />
+            </Box>
+          )}
 
           <footer className="col-span-3">
             <p className="flex justify-center gap-2">

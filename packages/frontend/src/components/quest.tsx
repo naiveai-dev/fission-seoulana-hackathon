@@ -109,10 +109,7 @@ export default function QuestSection() {
               <span className="tracking-tight">Try Data Labeling</span>
               <div className="h-11">
                 {dataLabelingQuest ? (
-                  <DataLabelingButton
-                    completed={dataLabelingCompleted}
-                    onClick={() => {}}
-                  />
+                  <DataLabelingButton completed={dataLabelingCompleted} />
                 ) : (
                   <>...</>
                 )}

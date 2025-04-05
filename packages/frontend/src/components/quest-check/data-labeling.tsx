@@ -1,11 +1,16 @@
+import { useLabeling } from '../../lib/use-labeling';
 import { Button } from '../button';
 
 export default function DataLabelingButton({
   completed,
-  onClick,
 }: {
   completed: boolean;
-  onClick: () => void;
 }) {
-  return <Button onClick={onClick}>{completed ? 'Completed' : 'Start'}</Button>;
+  const setLabelingMode = useLabeling((state) => state.setLabelingMode);
+
+  return (
+    <Button onClick={() => setLabelingMode(true)}>
+      {completed ? 'Completed' : 'Start'}
+    </Button>
+  );
 }
