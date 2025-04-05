@@ -11,9 +11,7 @@ export const FISSIONID_METADATA_URI =
 export const FISSIONID_IMAGE_URI =
   'https://gateway.irys.xyz/ALjExXMyGJ6CLYJxuVCXsjb7vbKkKqSaWJash19s2T65';
 
-export const FISSIONID_PRICE_SOL = 0.001;
-
-export const QUEST_PROGRAM_ID = 'EgRVporMpouQNbeacxnJDedG4zGnBMoEu1B6NKL4EQHn';
+export const QUEST_PROGRAM_ID = 'Bs7zB5us8D2PGPoos7ZX8xRviK5gBbx5ESvFPc1cMBAY';
 
 export enum QUEST_KEY {
   MINT_FISSION_ID = 'mint-fission-id',
