@@ -3,8 +3,7 @@ import { formatLabelingHistory } from './format';
 import { LabelingHistory } from './use-labeling';
 
 async function evaluate(history: LabelingHistory[]) {
-  const apiKey =
-    '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';
+  const apiKey = import.meta.env.ANTHROPIC_API_KEY;
 
   const formattedHistory = formatLabelingHistory(history);
 
