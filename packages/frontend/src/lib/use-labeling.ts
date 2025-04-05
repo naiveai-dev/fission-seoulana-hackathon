@@ -98,7 +98,7 @@ export interface UseLabelingStore {
 }
 
 export const useLabeling = create<UseLabelingStore>((set, get) => ({
-  labelingMode: true,
+  labelingMode: false,
   setLabelingMode: (labelingMode: boolean) => {
     return set({ labelingMode });
   },
