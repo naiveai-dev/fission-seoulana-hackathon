@@ -19,9 +19,11 @@ export default function Index() {
             <Wallet />
           </Box>
 
-          <Box label="Mint Fission ID" className="col-span-3 sm:col-span-1">
-            <Mint />
-          </Box>
+          <div className="col-span-3 sm:col-span-1">
+            <Box label="Mint Fission ID">
+              <Mint />
+            </Box>
+          </div>
 
           <Box label="Quests" className="col-span-3 sm:col-span-2">
             <QuestSection />
