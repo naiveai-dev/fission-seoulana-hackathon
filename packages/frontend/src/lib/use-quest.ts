@@ -175,7 +175,6 @@ async function fetchQuests({
 
   parsed.sort((a, b) => a.questId.localeCompare(b.questId));
 
-  console.log('questList', parsed);
   return parsed;
 }
 

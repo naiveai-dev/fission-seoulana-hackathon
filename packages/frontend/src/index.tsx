@@ -13,8 +13,6 @@ import { useLabeling } from './lib/use-labeling';
 export default function Index() {
   const labelingMode = useLabeling((state) => state.labelingMode);
 
-  console.log('----', import.meta.env.ANTHROPIC_API_KEY);
-
   return (
     <>
       <BaseLayout>
