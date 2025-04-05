@@ -6,6 +6,8 @@ import DocCheckButton from './quest-check/doc-check';
 import useQuest from '../lib/use-quest';
 
 import { QUEST_KEY } from '../lib/config';
+import DataLabelingButton from './quest-check/data-labeling';
+import HuggingFaceButton from './quest-check/hugging-face';
 
 export default function QuestSection() {
   const wallet = useWallet();
@@ -25,6 +27,16 @@ export default function QuestSection() {
     (q) => q.questId === QUEST_KEY.FISSION_DOC,
   );
   const fissionDocsCompleted = Boolean(questStatus?.[QUEST_KEY.FISSION_DOC]);
+
+  const dataLabelingQuest = questList?.find(
+    (q) => q.questId === QUEST_KEY.DATA_LABELING,
+  );
+  const dataLabelingCompleted = Boolean(questStatus?.[QUEST_KEY.DATA_LABELING]);
+
+  const huggingFaceQuest = questList?.find(
+    (q) => q.questId === QUEST_KEY.HUGGING_FACE,
+  );
+  const huggingFaceCompleted = Boolean(questStatus?.[QUEST_KEY.HUGGING_FACE]);
 
   return (
     <div className="w-full">
@@ -81,6 +93,38 @@ export default function QuestSection() {
                 <DocCheckButton
                   completed={fissionDocsCompleted}
                   onAfterCheck={async () => await complete(fissionDocsQuest)}
+                />
+              ) : (
+                <>...</>
+              )}
+            </div>
+          </div>
+        </li>
+
+        <li className="py-3">
+          <div className="flex justify-between items-center">
+            <span>Try Data Labeling</span>
+            <div className="h-11">
+              {dataLabelingQuest ? (
+                <DataLabelingButton
+                  completed={dataLabelingCompleted}
+                  onClick={() => {}}
+                />
+              ) : (
+                <>...</>
+              )}
+            </div>
+          </div>
+        </li>
+
+        <li className="py-3">
+          <div className="flex justify-between items-center">
+            <span>Hugging Face</span>
+            <div className="h-11">
+              {huggingFaceQuest ? (
+                <HuggingFaceButton
+                  completed={huggingFaceCompleted}
+                  onAfterCheck={async () => await complete(huggingFaceQuest)}
                 />
               ) : (
                 <>...</>

@@ -17,4 +17,6 @@ export enum QUEST_KEY {
   MINT_FISSION_ID = 'mint-fission-id',
   FOLLOW_X = 'follow-x',
   FISSION_DOC = 'fission-doc',
+  DATA_LABELING = ' data-labeling',
+  HUGGING_FACE = 'hugging-face',
 }
