@@ -1,54 +1,93 @@
-# React + TypeScript + Vite
+# Fission ID Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the frontend for the Fission ID system—a self-sovereign, merit-based identity solution built on the Solana blockchain. It integrates modern web technologies with blockchain functionality and interactive quests, including wallet connection, NFT minting, and data labeling tasks.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fission ID leverages:
 
-## Expanding the ESLint configuration
+- React + TypeScript & Vite: For fast development and hot module reloading.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Solana Wallet Adapter & Web3.js: To enable users to securely connect their wallets and interact with the blockchain.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Metaplex & Anchor: For NFT minting and on-chain quest management.
+
+- Tailwind CSS: For a responsive and modern user interface.
+
+- React Query: To manage asynchronous state and data fetching.
+
+- ESLint & TypeScript Configurations: To enforce code quality and consistency.
+
+The application supports various interactive quests:
+
+- Mint Fission ID: Mint a unique NFT to represent your identity.
+
+- Follow on 𝕏: Verify your social media follow.
+
+- Read Fission Docs: Encourage users to explore project documentation.
+
+- Data Labeling: Engage with an AI-assisted data labeling interface to assess response accuracy.
+
+> And yes, while the code is meticulously structured, it’s as precise as your morning coffee—only with fewer spills!
+
+## Features
+
+- Wallet Integration: Users can connect/disconnect their Solana wallet to interact with the application.
+
+- NFT Minting: Mint a Fission ID NFT directly from the app.
+
+- Quest System: Complete quests to earn reward points, which include following social media accounts and reading documentation.
+
+- Data Labeling Interface: Engage in a labeling task that checks the accuracy of AI responses.
+
+- Blockchain Interactions: Utilize the Solana devnet via Anchor and Metaplex for secure and fast transactions.
+
+## Installation
+
+1. Install Dependencies:
+
+```
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Development Server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+pnpm frontend dev
+```
+
+3. Build for Production:
+
+```
+pnpm frontend run build
+```
+
+## Configuration
+
+Vite Configuration: Located in vite.config.ts, includes plugins for React (using SWC), Tailwind CSS, and polyfills for Node globals.
+
+TypeScript Configuration: Multiple TSConfig files (tsconfig.json, tsconfig.app.json, tsconfig.node.json) are used to ensure a strict, type-safe environment.
+
+ESLint: The project uses a custom ESLint configuration (eslint.config.js) that includes recommended rules for React and TypeScript.
+
+## Folder Structure
+
+- `src/`
+
+  - `components/` – Contains React components for wallet management, quests, data labeling, and UI elements.
+
+  - `lib/` – Houses utility functions, Solana configuration, custom hooks (e.g., for wallet, balance, quests, minting, data labeling), and blockchain interaction logic.
+
+  - `provider.tsx` – Sets up global providers for wallet and data querying.
+
+  - `index.tsx` & main.tsx – Entry points for the application.
+
+- Project Config Files: Includes configurations for Vite, TypeScript, and ESLint.
+
+## Usage
+
+1. Connect Wallet: Use the wallet component to connect your Solana wallet.
+
+2. Complete Quests: Navigate through the quest section to verify actions such as minting your Fission ID NFT, following social media, and reviewing documentation.
+
+3. Data Labeling: Participate in the interactive labeling interface to evaluate AI response fragments and save your progress on-chain.
