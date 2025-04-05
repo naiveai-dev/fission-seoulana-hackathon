@@ -1,6 +1,9 @@
 export default function FAQ() {
   return (
-    <div className="min-h-svh">
+    <article className="min-h-svh py-20">
+      <header className="border-t-4 border-primary pt-5 pb-3">
+        <h1 className="text-3xl text-center">QnA</h1>
+      </header>
       {list.map((item, index) => (
         <div
           key={index}
@@ -20,7 +23,7 @@ export default function FAQ() {
           )}
         </div>
       ))}
-    </div>
+    </article>
   );
 }
 
